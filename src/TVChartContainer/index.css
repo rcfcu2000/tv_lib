@@ -1,0 +1,91 @@
+.TVChartContainer {
+	/* height: calc(100vh - 80px); */
+	height: calc(100% - 30px);
+    width: 100%;
+}
+
+.pane-controls .toppane{
+	display: none;
+}
+
+.chart-page{
+	background-color: white!important;
+}
+
+.pane-legend-line {
+    display: inline;
+    cursor: default;
+    pointer-events: none !important;
+    font-size: 11px !important;
+}
+ 
+.pane-legend-line span {
+    color: #fff;
+}
+ 
+.pane-legend-line.pane-legend-wrap.study > .pane-legend-line {
+    font-size: 11px !important;
+    color: #fff !important;
+}
+ 
+.pane-legend-icon-container{
+    display: none !important;
+}
+ 
+.pane-legend-line>.main{
+    display: none !important;
+}
+ 
+.pane-legend .pane-legend-minbtn{
+    display: none;
+}
+
+.utilsbuttons {
+    position: relative;
+    padding: 0px 0px;
+    display: flex;
+    align-items: center;
+	height: 30px;
+    width: 100%;
+    border-bottom: 1px solid #14181c;
+}
+
+.utilsbuttons ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: right;
+	display: flex;
+	/* width: 100%; */
+    background-color: #191e38;
+    border-bottom: 1px solid #14181c;
+    
+}
+
+.utilsbuttons ul li{
+	/* width: 50px; */
+    font-size: 12px;
+	padding: 0px 12px;
+    background-color: #1A1E36;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+	height: 30px;
+	/* line-height: 30px; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+    /* border-bottom: 1px solid #14181c; */
+}
+
+.utilsbuttons .active {
+	background: #2c3b59;
+    color: #c7cce6;
+}
+
+
+
+.interval {
+	display: flex;	
+}
