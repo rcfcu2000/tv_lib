@@ -533,12 +533,16 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 
 
 const SetFullScreen = (docElm) => {
-	if (document.documentElement.requestFullscreen) {
-		docElm.requestFullscreen()
-	}  else if (document.documentElement.webkitRequestFullscreen) {
-		docElm.webkitRequestFullscreen()
-	} else if (document.documentElement.mozRequestFullScreen) {
-		docElm.mozRequestFullScreen();
-	}
+
+	// 发送 全屏指令
+	window.postMessage({action: 'fullscreen_change', value: true, symbol: this.symbol}, '*');
+
+	// if (document.documentElement.requestFullscreen) {
+	// 	docElm.requestFullscreen()
+	// }  else if (document.documentElement.webkitRequestFullscreen) {
+	// 	docElm.webkitRequestFullscreen()
+	// } else if (document.documentElement.mozRequestFullScreen) {
+	// 	docElm.mozRequestFullScreen();
+	// }
 }
   
