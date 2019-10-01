@@ -535,7 +535,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 const SetFullScreen = (docElm) => {
 
 	// 发送 全屏指令
-	window.postMessage({action: 'fullscreen_change', value: true, symbol: this.symbol}, '*');
+	window.postMessage(JSON.stringify({action: 'fullscreen_change', value: true, symbol: this.symbol}), '*');
 
 	// if (document.documentElement.requestFullscreen) {
 	// 	docElm.requestFullscreen()
