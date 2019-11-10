@@ -12,6 +12,7 @@ import datafeeds from '../datafeeds/datafeeds';
 
 export interface ChartContainerProps {
 	symbol: ChartingLibraryWidgetOptions['symbol'];
+	precision: number;
 	interval: ChartingLibraryWidgetOptions['interval'];
 
 	// BEWARE: no trailing slash is expected in feed URL
@@ -68,6 +69,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 	}
 	public static defaultProps: ChartContainerProps = {
 		symbol: 'AAPL',
+		precision: 4,
 		interval: 'D',
 		containerId: 'tv_chart_container',
 		datafeedUrl: 'https://demo_feed.tradingview.com',
@@ -116,7 +118,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 			datafeed: this.datafeeds,
 			library_path: this.props.libraryPath as string,
 			timezone: 'Asia/Shanghai',
-			locale: 'en',
+			locale: 'zh',
 			debug: false,
 			custom_css_url: '/coinxp.css',
 			// favorites: {
@@ -376,7 +378,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 			'has_no_volume': false,
 			'description': symbolName,
 			// 'pricescale': [1, 1, 0.0001],
-			'pricescale': 100000000,
+			'pricescale': Math.pow(10, this.props.precision),
 			'ticker': symbolName,
 			'supported_resolutions': ['1', '5', '15', '30', '60', '1D', '1W', '1M']
 		}
@@ -426,11 +428,11 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 			data.data.forEach((element: any) => {
 				list.push({
 					time: element.id * 1000,
-					open: element.open,
-					high: element.high,
-					low: element.low,
-					close: element.close,
-					volume: element.vol,
+					open: formatPrice(element.open, this.props.precision),
+					high: formatPrice(element.high, this.props.precision),
+					low: formatPrice(element.low, this.props.precision),
+					close: formatPrice(element.close, this.props.precision),
+					volume: formatPrice(element.vol, this.props.precision),
 				});
 			});
 			this.cacheData[klineKey] = list;
@@ -452,11 +454,11 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 			const klineKey = `${this.symbol}-${this.interval}`
 			const barsData = {
 				time: Math.floor(data.ts / timeInterval) * timeInterval,
-				open: tick.open,
-				high: tick.high,
-				low: tick.low,
-				close: tick.close,
-				volume: tick.vol
+				open: formatPrice(tick.open, this.props.precision),
+				high: formatPrice(tick.high, this.props.precision),
+				low: formatPrice(tick.low, this.props.precision),
+				close: formatPrice(tick.close, this.props.precision),
+				volume: formatPrice(tick.vol, this.props.precision)
 			}
 			if (barsData.time >= this.lastTime && this.cacheData[klineKey] && this.cacheData[klineKey].length) {
 				this.cacheData[klineKey][this.cacheData[klineKey].length - 1] = barsData;
@@ -530,6 +532,13 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 
 }
 
+const formatPrice = (price, precision) => {
+
+	// const r = Number(price).toFixed(precision);
+	// console.log('formatPrice', r, price);
+
+	return Number(price);
+}
 
 
 const SetFullScreen = (docElm) => {

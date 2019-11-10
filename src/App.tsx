@@ -13,9 +13,11 @@ class App extends React.Component<{}, any> {
     // 读取当前请求参数
     const url = new URL(window.location.href);
     const symbol = url.searchParams.get("symbol");
+    const precision = url.searchParams.get("precision");
 
     this.state = {
-      symbol: symbol ? symbol : 'BTC/USDT'
+      symbol: symbol ? symbol : 'BTC/USDT',
+      precision: precision ? precision : 4
     };
 
     console.log('current symbol: '+ this.state.symbol)
@@ -62,7 +64,10 @@ class App extends React.Component<{}, any> {
     return (
       <div className="App">
         <div style={{ width: '100%', height: '100%' }}>
-          <TVChartContainer symbol={symbol} key={symbol} />
+          <TVChartContainer 
+            symbol={symbol} 
+            precision={this.state.precision}
+            key={symbol} />
         </div>
       </div>
     );
