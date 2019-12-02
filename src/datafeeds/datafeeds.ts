@@ -45,7 +45,7 @@ export default class datafeeds {
     onErrorCallback,
     firstDataRequest
   ) {
-    // console.log("getBars", symbolInfo, firstDataRequest);
+    // console.log('getBars')
     this.ctx.getBars(
       symbolInfo,
       resolution,

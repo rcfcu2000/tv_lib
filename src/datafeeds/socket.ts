@@ -2,7 +2,8 @@
 const pako = require("pako");
 // const defaultWSURL = 'wss://wss.coinxp.io/wss2';
 const defaultWSURL =
-  process.env.REACT_APP_KLINE_SOCKET_HOST || "ws://test.kline.hubdex.io:8181";
+  // "ws://test.kline.hubdex.io:8181";
+  "wss://kline.hubdex.io";
 // const defaultWSURL = 'ws://tracker.coinxp.io:3030/';
 
 // const defaultWSURL = 'wss://tracker.coinxp.io/wss';

@@ -7,6 +7,8 @@ import {
 	IChartingLibraryWidget,
 } from '../charting_library/charting_library.min';
 
+import icon_infomation from '../images/icon_infomation.svg'
+
 import socket from '../datafeeds/socket';
 import datafeeds from '../datafeeds/datafeeds';
 
@@ -64,7 +66,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 		super(props);
 		this.state = {
 			loaded: false,
-			time: '5min',
+			time: '1D',
 		}
 	}
 	public static defaultProps: ChartContainerProps = {
@@ -95,7 +97,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 	public componentDidMount(): void {
 
 		this.symbol = this.getSymbolName().toLocaleUpperCase();
-		this.interval = 5;
+		this.interval = '1D';
 		// this.socket = new socket({});
 		this.socket = new socket({});
 		this.datafeeds = new datafeeds(this);
@@ -320,14 +322,19 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
                             </svg >
                           </li >
 						  <li onClick={() => {
+                            showCoinDetail()
+                          }} >
+						   <img src={icon_infomation} />
+						   </li >
+						  <li onClick={() => {
                             const tradingview = document.getElementsByTagName('iframe')[0]
                             tradingview && SetFullScreen(tradingview)
                           }} >
 						   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 586.09999 586.09996" width="17" height="17">
-						   <path 
-						   fill='#6A7286'
-						   d="M172.6 367.9l-97.7 97.7L0 390.7v195.4h195.4l-74.9-74.9 97.7-97.7-45.6-45.6zM195.4 0H0v195.4l74.9-74.9 97.7 97.7 45.6-45.6-97.7-97.7L195.4 0zm195.3 0l74.9 74.9-97.7 97.7 45.6 45.6 97.7-97.7 74.9 74.9V0H390.7zm22.8 367.9l-45.6 45.6 97.7 97.7-74.9 74.9h195.4V390.7l-74.9 74.9-97.7-97.7z">
-						   </path>
+							<path 
+							fill='#6A7286'
+							d="M172.6 367.9l-97.7 97.7L0 390.7v195.4h195.4l-74.9-74.9 97.7-97.7-45.6-45.6zM195.4 0H0v195.4l74.9-74.9 97.7 97.7 45.6-45.6-97.7-97.7L195.4 0zm195.3 0l74.9 74.9-97.7 97.7 45.6 45.6 97.7-97.7 74.9 74.9V0H390.7zm22.8 367.9l-45.6 45.6 97.7 97.7-74.9 74.9h195.4V390.7l-74.9 74.9-97.7-97.7z">
+							</path>
 						   </svg>
 						   </li >
                         </ul >
@@ -553,5 +560,11 @@ const SetFullScreen = (docElm) => {
 	// } else if (document.documentElement.mozRequestFullScreen) {
 	// 	docElm.mozRequestFullScreen();
 	// }
+}
+
+const showCoinDetail = () =>{
+	// 发送 显示币种详情指令
+	window.postMessage(JSON.stringify({action: 'show_coin_detail', value: true, symbol: this.symbol}), '*');
+
 }
   

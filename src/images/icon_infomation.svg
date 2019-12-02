@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标注-新交易" transform="translate(-290.000000, -198.000000)" stroke="#6A7286" stroke-width="0.85">
+            <g id="编组" transform="translate(-5.000000, 0.000000)">
+                <g transform="translate(51.000000, 15.000000)" id="编组-2">
+                    <g transform="translate(245.362028, 183.780796)">
+                        <polygon id="Stroke-34" points="-6.25277607e-13 17.8900763 16.3766414 17.8900763 16.3766414 2.27373675e-13 -6.25277607e-13 2.27373675e-13"></polygon>
+                        <line x1="4.11055034" y1="4.03634247" x2="12.2654745" y2="4.03634247" id="Stroke-36"></line>
+                        <line x1="4.11055034" y1="8.94524373" x2="12.2654745" y2="8.94524373" id="Stroke-37"></line>
+                        <line x1="4.11055034" y1="13.8537338" x2="12.2654745" y2="13.8537338" id="Stroke-38"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
