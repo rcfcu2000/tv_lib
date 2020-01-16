@@ -519,9 +519,9 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 		let time = intervalTimeMap[this.interval];
 		// console.log('getTimeInterval...', this.interval, time);
 		if (time) {
-			return time * 1000;
+			return time;
 		}
-		return 5 * 60 * 1000;
+		return 5 * 60;
 	}
 
 	/**

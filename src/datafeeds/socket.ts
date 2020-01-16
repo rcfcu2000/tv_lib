@@ -1,9 +1,8 @@
 // import io from 'socket'
 const pako = require("pako");
 // const defaultWSURL = 'wss://wss.coinxp.io/wss2';
-const defaultWSURL =
-  // "ws://test.kline.hubdex.io:8181";
-  "wss://kline.hubdex.io";
+const defaultWSURL = "ws://test.kline.hubdex.io:8181";
+// "wss://kline.hubdex.io";
 // const defaultWSURL = 'ws://tracker.coinxp.io:3030/';
 
 // const defaultWSURL = 'wss://tracker.coinxp.io/wss';
