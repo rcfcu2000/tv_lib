@@ -460,7 +460,7 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 			let timeInterval = this.getTimeInterval();
 			const klineKey = `${this.symbol}-${this.interval}`
 			const barsData = {
-				time: Math.floor(data.ts / timeInterval) * timeInterval,
+				time: Math.floor(data.ts / timeInterval) * timeInterval * 1000,
 				open: formatPrice(tick.open, this.props.precision),
 				high: formatPrice(tick.high, this.props.precision),
 				low: formatPrice(tick.low, this.props.precision),
