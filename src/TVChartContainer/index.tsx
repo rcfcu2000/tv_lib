@@ -501,6 +501,8 @@ export class TVChartContainer extends React.PureComponent<Partial<ChartContainer
 				} catch (e) {
 					console.error("tvc error", new Error(e));
 				}
+			} else {
+          onHistoryCallback(this.cacheData[klineKey], {noData: false});			
 			}
 		} else {
 			const self = this
