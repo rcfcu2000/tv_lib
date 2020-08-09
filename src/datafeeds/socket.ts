@@ -1,4 +1,5 @@
 // import io from 'socket'
+import ReconnectingWebSocket from './reconnecting-websocket.js'
 const pako = require("pako");
 // const defaultWSURL = 'wss://wss.coinxp.io/wss2';
 const defaultWSURL =
@@ -31,7 +32,7 @@ export default class socket {
     this.handleMap = {};
     this.connected = false;
 
-    const websocket = new WebSocket(this.url);
+    const websocket = new ReconnectingWebSocket(this.url);
     websocket.binaryType = "arraybuffer";
     websocket.onclose = (e: CloseEvent) => this._onClose(e);
     websocket.onmessage = (e: MessageEvent) => this._onMessage(e);
