@@ -131,7 +131,7 @@
             maxReconnectAttempts: null,
 
             /** The binary type, possible values 'blob' or 'arraybuffer', default 'blob'. */
-            binaryType: 'blob'
+            binaryType: 'arraybuffer'
         }
         if (!options) { options = {}; }
 
